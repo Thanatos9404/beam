@@ -81,6 +81,7 @@
 ## Bugfixes
 
 * (Python) RunInference now measures model memory (the `model_byte_size` metric) when `torch` is not installed. It was always 0, because a failed `ModelManager` import also disabled the `resource` module ([#40854](https://github.com/apache/beam/issues/40854)).
+* (Python) An unknown pipeline option is no longer given the value of a later argument that does not directly follow it, which made `Pipeline.run()` and `get_all_options(retain_unknown_options=True)` fail with `expected one argument` for flags like `--unknown_flag --job_name=foo bar` ([#22434](https://github.com/apache/beam/issues/22434)).
 * Fixed X (Java/Python) ([#X](https://github.com/apache/beam/issues/X)).
 
 ## Security Fixes
